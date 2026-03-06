@@ -1,0 +1,18 @@
+build
+*.log
+./*.log
+*.log.*
+../builds
+*.zip
+
+# Secrets and local config
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+credentials
+secrets
+config.local.toml

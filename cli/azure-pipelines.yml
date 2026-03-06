@@ -1,0 +1,38 @@
+trigger:
+- master
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  GOBIN: '$(system.defaultWorkingDirectory)/bin' # Go binaries path
+
+steps:
+- script: |
+    mkdir -p '$(GOBIN)'
+    echo '##vso[task.prependpath]$(GOBIN)'
+  displayName: 'Set up the Go workspace'
+
+- script: |
+    go version
+    if [ ! -f go.mod ]; then
+        go mod init Zed
+    fi
+    go mod tidy
+    go mod download
+    if [ -f Gopkg.toml ]; then
+        curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
+        dep ensure
+    fi
+  workingDirectory: '$(system.defaultWorkingDirectory)'
+  displayName: 'Get dependencies'
+
+- script: |
+    go test -v ./...
+  workingDirectory: '$(system.defaultWorkingDirectory)'
+  displayName: 'Run tests'
+
+- script: |
+    go build -v .
+  workingDirectory: '$(system.defaultWorkingDirectory)'
+  displayName: 'Build'

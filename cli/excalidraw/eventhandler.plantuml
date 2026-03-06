@@ -1,0 +1,56 @@
+@startuml
+!theme toy
+
+WebsocketStream --> EventStreamer
+EventStreamer --> EventBus
+EventBus --> PumpfunBuyer
+
+class WebsocketStream {
+}
+
+class EventStreamer {
++ TransformToEvent(raw_data) : Event
+- publish(e Event)
+}
+
+interface EventBus {
++ Publish(e Event)
++ Subscribe(handler EventHandler)
+}
+class EventBusImpl extends EventBus {
+- handlers: EventHandler[]
+}
+
+class PumpfunBuyer implements EventHandler {
+- userConfig: UserConfig
+- tasks: Task[]
++ HandleEvent(e Event)
+- getTasksForEvent(e Event): Task[]
+}
+
+class Task {
+- wallet: Wallet
+- activeEvents: Event[]
+- solAmount: number
+- slippage : number
++ isEventActive(e Event): boolean
+}
+
+class UserConfig {
+  ' Global user settings
+}
+
+enum Event {
+  NewPumpfunTokenEvent
+  PumpfunPriceChangeEvent
+  ...
+}
+
+note top of PumpfunBuyer
+This handler listens for events related to Pumpfun tokens.
+For each event, it identifies the relevant tasks and then decides
+whether to BUY based on the event type, user configuration,
+and task details. It then executes the buying process, passing the
+token mint, user configuration, and the relevant task.
+end note
+@enduml

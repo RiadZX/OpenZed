@@ -1,0 +1,1 @@
+taskname,privatekey,wallet_to_copy,stop_loss,take_profit,dynamic_fee,dynamic_fee_level,fixed_fee,sol_buy_amount,buy_percentage,buy_slippage,selling_slippage,task_maximum_buys_per_token,copy_sell_percentage,copy_sell,min_mcap,monitormode,enabled

@@ -1,0 +1,34 @@
+licenseKey = "<LICENSE_KEY>"
+rpcUrl = "http://nl.rpc.asuga.io"
+grpcUrl = "http://nl.grpc.asuga.io:10000"
+wssUrl = "ws://newyork.omeganetworks.io:8900"
+webhookUrl="https://discord.com/api/webhooks/WEBHOOKURL"
+blockEngineURLLocation="amsterdam" #amsterdam,frankfurt,newyork,tokyo
+TPS = 5 #transactions per second
+#ONLY USED WHEN NOT USING gRPC. IF USING GRPC THEN IGNORE.
+extraRPCS=[ #these will be used for getting the transaction details, multiple to counter rate limit
+]
+pnlDelayMS = 500
+grpcHeaders = ""
+[copyTrader]
+# maximum amount of times the bot is allowed to buy of a token
+global_maximum_buys_per_token = 1000
+turbo=true
+## -------------------
+temporal = false #use temporal to send
+jito = false #use jito to send
+nextblock = false #use nextblock to send
+circular = false #use circular to send
+temporalLocation = "https://ams1.nozomi.temporal.xyz/" #amsterdam / frankfurt / useast
+temporal_apiKey = "" # set your Nozomi/Temporal API key when using temporal
+nextblockLocation = "frankfurt" # frankfurt / newyork
+nextblock_apiKey = "default"
+circular_apiKey = "" # set your Circular API key when using circular
+## -------------------
+buy_tipFee = 0.001
+sell_tipFee = 0.001
+heliusUrl="https://mainnet.helius-rpc.com/?api-key=XYZ"
+getTransactionDelayMS = 500 #try and change this
+getTransactionRetries = 50 #leave at 50!
+getAccountInfoDelayMS = 400
+getAccountInfoRetries = 50
