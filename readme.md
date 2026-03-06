@@ -22,3 +22,5 @@ If you have any questions, feel free to open a GitHub issue.
 I had to compress the whole history into 1 commit **:(** and hide private keys/ secrets to protect myself from any leakage.
 
 > Mind you this code was meant to only be read by my eyes, as I was the only developer, so excuse the mess :D
+> 
+> The last update this bot got was in June 2025.
