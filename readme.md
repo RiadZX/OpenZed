@@ -7,7 +7,7 @@ What is this? -> read the docs. **TLDR;** (was) one of the fastest copytrading b
 **Links**:
 - [Website](https://zedsoftware.framer.website/)
 - [Documentation](https://zed-software.gitbook.io/zed-docs)
-
+- [Deepwiki](https://deepwiki.com/RiadZX/OpenZed) (automatically generated docs)
 
 
 I've decided to opensource my copytrader bot as it would be waste for it to collect dust in a private repo. 
